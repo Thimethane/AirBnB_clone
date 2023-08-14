@@ -33,28 +33,12 @@ class FileStorage():
             json.dump(data, file)
 
     def reload(self):
-        """public instance method that deserializes a JSON file to objects."""
         try:
             with open(FileStorage.__file_path, 'r', encoding='utf-8') as file:
                 data = json.load(file)
-            for key, value in data.items():
-                cls_name = value['__class__']
-                if cls_name == 'BaseModel':
-                    obj = BaseModel(**value)
-                elif cls_name == 'User':
-                    obj = User(**value)
-                elif cls_name == 'Place':
-                    obj = Place(**value)
-                elif cls_name == 'State':
-                    obj = State(**value)
-                elif cls_name == 'City':
-                    obj = City(**value)
-                elif cls_name == 'Amenity':
-                    obj = Amenity(**value)
-                elif cls_name == 'Review':
-                    obj = Review(**value)
-                else:
-                    continue
-                FileStorage.__objects[key] = obj
+                for key, value in data.items():
+                    cls_name = value['__class__']
+                    obj = eval(cls_name + '(**value)')
+                    FileStorage.__objects[key] = obj
         except FileNotFoundError:
             pass
