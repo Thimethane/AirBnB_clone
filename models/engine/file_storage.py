@@ -3,6 +3,11 @@
 import json
 from models.base_model import BaseModel
 from models.user import User
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 
 
 class FileStorage():
@@ -34,7 +39,22 @@ class FileStorage():
                 data = json.load(file)
             for key, value in data.items():
                 cls_name = value['__class__']
-                obj = eval(cls_name + '(**value)')
+                if cls_name == 'BaseModel':
+                    obj = BaseModel(**value)
+                elif cls_name == 'User':
+                    obj = User(**value)
+                elif cls_name == 'Place':
+                    obj = Place(**value)
+                elif cls_name == 'State':
+                    obj = State(**value)
+                elif cls_name == 'City':
+                    obj = City(**value)
+                elif cls_name == 'Amenity':
+                    obj = Amenity(**value)
+                elif cls_name == 'Review':
+                    obj = Review(**value)
+                else:
+                    continue
                 FileStorage.__objects[key] = obj
         except FileNotFoundError:
             pass
