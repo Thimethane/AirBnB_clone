@@ -5,16 +5,18 @@ from models import storage
 from models.base_model import BaseModel
 from models.user import User
 
+
 class HBNBCommand(cmd.Cmd):
     """Defines the HolbertonBnB command interpreter."""
     prompt = "(hbnb) "
+    valid_classes = ["BaseModel", "User"]
 
     def emptyline(self):
         """Do nothing upon receiving an empty line."""
         pass
 
     def do_quit(self, arg):
-        """Quit command to exit the program.\n"""
+        """Quit command to exit the program."""
         return True
 
     def do_EOF(self, arg):
@@ -23,13 +25,14 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, arg):
         """Create a new instance of BaseModel and save it to the JSON file."""
+        args = arg.split()
         if not arg:
             print("** class name missig **")
             return
-        if args[0] not in ["BaseModel", "User"]:
+        if args[0] not in self.valid_classes:
             print("** class doesn't exist")
             return
-        new_instance = BaseModel()
+        new_instance = eval(args[0])()
         new_instance.save()
         print(new_instance.id)
 
@@ -39,7 +42,7 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             print("** class name missing **")
             return
-        if args[0] not in ["BaseModel", "User"]:
+        if args[0] not in self.valid_classes:
             print("** class doesn't exist **")
             return
         if len(args) < 2:
@@ -57,7 +60,7 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             print("** class name missing **")
             return
-        if args[0] not in ["BaseModel", "User"]:
+        if args[0] not in self.valid_classes:
             print("** class doesn't exist **")
             return
         obj_key = "{}.{}".format(args[0], args[1])
@@ -66,12 +69,12 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
         else:
             print("** no instance found **")
-    
+
     def do_all(self, arg):
         """Print all string representations of instances."""
         if not arg:
             objs = storage.all().values()
-        elif arg in ["BaseModel", "User"]:
+        elif arg in self.valid_classes:
             objs = [
                 obj for obj in storage.all()
                 .values() if type(obj).__name__ == arg
@@ -87,7 +90,7 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             print("** class name missing **")
             return
-        if args[0] not in ["BaseModel", "User"]:
+        if args[0] not in self.valid_classes:
             print("** class doesn't exist **")
             return
         if len(args) < 2:
@@ -108,6 +111,7 @@ class HBNBCommand(cmd.Cmd):
         attr_value = args[3]
         setattr(obj, attr_name, attr_value)
         obj.save()
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

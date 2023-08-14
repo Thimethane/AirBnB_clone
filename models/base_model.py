@@ -28,8 +28,7 @@ class BaseModel():
 
     def __str__(self):
         '''string of BaseModel instance'''
-        return "[{}] {}".format(self.__class__.__name__,
-                                     self.__dict__)
+        return "[{}] {}".format(self.__class__.__name__, self.__dict__)
 
     def save(self):
         '''updates 'updated_at' instance with current datetime'''
