@@ -1,10 +1,16 @@
+/* CSS for footer styles */
 footer {
-  align-items: center;
-  background-color: #0f0;
-  bottom: 0;
-  display: flex;
+  background-color: #00FF00;
   height: 60px;
-  justify-content: center;
-  position: absolute;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+}
+
+footer p {
+  margin: 0;
+  padding: 0;
 }

@@ -1,11 +1,17 @@
+/* CSS for footer styles */
 footer {
-  align-items: center;
-  background-color: #fff;
-  border-top: 1px solid #ccc;
-  bottom: 0;
-  display: flex;
+  background-color: white;
   height: 60px;
-  justify-content: center;
-  position: absolute;
   width: 100%;
+  border-top: 1px solid #CCCCCC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 0;
+}
+
+footer p {
+  text-align: center;
+  vertical-align: middle;
 }

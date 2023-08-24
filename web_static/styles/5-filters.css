@@ -1,56 +1,53 @@
+/* CSS for filter section, locations, amenities and button styles */
 .filters {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  height: 70px;
-  width: 100%;
-}
-
-.filters button {
-  background: #ff5a5f;
-  border: none;
-  border-radius: 4px;
-  color: #fff;
-  float: right;
-  font-size: 18px;
-  height: 48px;
-  margin: 12px 30px;
-  width: 20%;
-}
-
-.filters button:hover {
-  background-color: rgba(255, 90, 95, .9);
-}
-
-.locations,
-.amenities {
-  display: inline-block;
-  height: 100%;
-  width: 25%;
+    background-color: white;
+    height: 70px;
+    width: 100%;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
 }
 
 .locations {
-  border-right: 1px solid #ddd;
+    height: 100%;
+    width: 25%;
+    border-right: 1px solid #DDDDDD;
+    display: inline-block;
+    margin-left: 40px;
 }
 
-.filters h2,
-.filters h3,
-.filters h4 {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+.amenities {
+    height: 100%;
+    width: 25%;
+    display: inline-block;
+    margin-left: 40px;
 }
 
-.filters h3 {
-  font-size: 1.17em;
-  font-weight: 600;
-  height: 50%;
-  padding: 15.5px 0 0 30px;
+h3 {
+    font-weight: 600;
+    margin-top: 10px;
 }
 
-.filters h4 {
-  font-size: 14px;
-  font-weight: 400;
-  height: 50%;
-  padding: 4.5px 0 12px 30px;
+
+h4 {
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: -12px;
+}
+
+.search-button {
+    background-color: #FF5A5F;
+    color: #FFFFFF;
+    font-size: 18px;
+    height: 48px;
+    width: 20%;
+    border: 0;
+    border-radius: 4px;
+    margin: 10px auto;
+    float: right;
+    margin-right: 20px;
+    border: none;
+}
+
+.search-button:hover {
+    opacity: 90%;
 }

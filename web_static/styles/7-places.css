@@ -1,24 +1,31 @@
-.places article {
-  border: 1px solid #ff5a5f;
-  border-radius: 4px;
-  display: inline-block;
-  margin: 20px;
-  padding: 20px;
-  width: 390px;
+.places {
+    font-size: 30px;
+    text-align: center;
+    padding-left: 30px;
+}
+
+article {
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #FF5A5F;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+article h2 {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .places h1 {
-  font-size: 30px;
-  font-weight: bold;
-  margin: .67em 0 .67em 0;
-  width: 100%;
-}
-
-.places h2 {
-  font-size: 30px;
-  font-weight: bold;
-  text-align: center;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+    font-size: 30px;
+    font-weight: bold;
+    margin: .67em 0 .67em 0;
+    width: 100%;
+    text-align: left;
 }
